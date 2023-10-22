@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TasksModule } from './tasks/tasks.module';
+import { AuthModule } from './auth/auth.module';
 import * as joi from 'joi';
 
 @Module({
@@ -12,7 +13,7 @@ import * as joi from 'joi';
       PORT: joi.number().required(),
       DATABASE_URL: joi.string().required(),
     }),
-  }), TasksModule],
+  }), TasksModule, AuthModule],
   controllers: [AppController],
   providers: [AppService],
 })
